@@ -1,28 +1,30 @@
 """
-AlphaPilot MVP Entry Point
+AlphaPilot MVP Entry Point - Multi-Agent Orchestration
 """
 import sys
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from parser import parse_hypothesis
-from validator import QuantValidator
+from agents import ResearcherAgent, CriticAgent, ValidatorAgent, AdvisorAgent
 
 console = Console()
 
-def print_card(result: dict, title: str):
-    """打印验证卡片"""
+def print_validation_card(result: dict, title: str = "Final Validation Result"):
+    """Prints a professional validation card."""
     table = Table(show_header=False, box=None, padding=(0, 2))
     table.add_column("Metric", style="cyan")
     table.add_column("Value", justify="right", style="bold")
     
-    table.add_row("策略年化", f"{result['strategy_annual']*100:.2f}%")
-    table.add_row("基准年化", f"{result['benchmark_annual']*100:.2f}%")
-    table.add_row("超额收益", f"{result['excess_return']*100:.2f}%", 
-                  style="green" if result['excess_return'] > 0 else "red")
-    table.add_row("p-value", f"{result['p_value']:.3f}", 
-                  style="green" if result['p_value'] < 0.05 else "dim")
-    table.add_row("最大回撤", f"{result['max_drawdown']*100:.2f}%")
+    table.add_row("Strategy Annualized", f"{result['strategy_annual']*100:.2f}%")
+    table.add_row("Benchmark Annualized", f"{result['benchmark_annual']*100:.2f}%")
+    
+    excess_color = "green" if result['excess_return'] > 0 else "red"
+    table.add_row("Excess Return (Alpha)", f"{result['excess_return']*100:.2f}%", style=excess_color)
+    
+    p_color = "green" if result['p_value'] < 0.05 else "dim"
+    table.add_row("Statistical Significance", f"p-value = {result['p_value']:.3f}", style=p_color)
+    
+    table.add_row("Max Drawdown", f"{result['max_drawdown']*100:.2f}%")
     
     panel = Panel(table, title=f"[bold]{title}[/bold]", 
                   border_style=result['color'], expand=False)
@@ -30,31 +32,46 @@ def print_card(result: dict, title: str):
     console.print(f"[bold {result['color']}]{result['conclusion']}[/bold {result['color']}]")
 
 def main():
-    console.rule("[bold green]AlphaPilot: Investment Hypothesis Validator[/bold green]")
-    console.print("[dim]让每一个投资观点都经得起历史检验[/dim]\n")
+    console.rule("[bold green]AlphaPilot: Multi-Agent Investment Copilot[/bold green]")
+    console.print("[dim]Turn natural-language hypotheses into statistically validated signals.[/dim]\n")
     
-    validator = QuantValidator()
+    # Initialize Agents
+    researcher = ResearcherAgent()
+    critic = CriticAgent()
+    validator = ValidatorAgent()
+    advisor = AdvisorAgent()
     
-    # 演示模式：自动运行两个案例
-    if len(sys.argv) == 1:
-        console.print("[bold]🎬 启动 Demo 模式...[/bold]\n")
-        
-        # Case 1: 失败案例
-        hyp1 = parse_hypothesis("京东方A PB低于1倍时买入")
-        res1 = validator.run_validation(hyp1)
-        print_card(res1, "Case 1: 原观点验证")
-        
-        # Case 2: 优化建议
-        res2 = validator.suggest_optimization(hyp1, res1)
-        if res2:
-            print_card(res2, "Case 2: AI 优化后验证")
-            
-    else:
-        # 交互模式
+    # Get Input
+    if len(sys.argv) > 1:
         user_input = " ".join(sys.argv[1:])
-        hyp = parse_hypothesis(user_input)
-        res = validator.run_validation(hyp)
-        print_card(res, "验证结果")
+    else:
+        user_input = "京东方A PB低于1倍时买入" # Default demo input
+    
+    console.print(f"[bold]Input Hypothesis:[/bold] {user_input}")
+    
+    # 1. Researcher Agent
+    hypothesis = researcher.run(user_input)
+    
+    # 2. Critic Agent
+    if not critic.run(hypothesis):
+        console.print("[red]Validation aborted due to logical risks.[/red]")
+        return
+
+    # 3. Validator Agent (First Pass)
+    result = validator.run(hypothesis)
+    print_validation_card(result, "Initial Validation")
+    
+    # 4. Advisor Agent
+    advice = advisor.run(hypothesis, result)
+    
+    # 5. Automatic Re-validation if advised
+    if advice and advice.get('action') == 're_validate':
+        console.print("\n[bold yellow]🔄 Initiating automatic re-validation with optimized parameters...[/bold yellow]\n")
+        hypothesis['threshold'] = advice['new_threshold']
+        hypothesis['signal_desc'] = f"{hypothesis['field'].upper()} < {advice['new_threshold']}"
+        
+        result_opt = validator.run(hypothesis)
+        print_validation_card(result_opt, "Optimized Validation")
 
 if __name__ == "__main__":
     main()
