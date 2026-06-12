@@ -1,65 +1,60 @@
-# AlphaPilot 🤖📈
+# AlphaPilot
 
-**AlphaPilot** is a multi-agent investment research copilot that turns natural-language investment hypotheses into statistically validated trading signals.
+AlphaPilot is a multi-agent research demo for the QoderWork Hackathon. It turns a natural-language research hypothesis into a simple testable signal and shows a validation card.
 
-> "Large models generate opinions; AlphaPilot validates them."
+> Large models generate opinions; AlphaPilot validates them.
 
-## 🌟 Project Overview
-Traditional AI assistants can write beautiful investment reports, but they never take responsibility for the results. AlphaPilot closes this gap by acting as a **scientific validation engine**:
-1.  **Parse**: Extract quantifiable logic from natural language.
-2.  **Validate**: Execute historical backtests with statistical rigor (t-tests).
-3.  **Advise**: Provide data-driven feedback to refine your investment thesis.
+## Project Overview
 
-## 🏗️ Agent Architecture
-AlphaPilot orchestrates four specialized agents to ensure robustness:
+This project demonstrates a lightweight agent workflow:
+
+1. Parse a research hypothesis.
+2. Convert it into a structured signal.
+3. Compare the signal result with a simple benchmark.
+4. Produce a clear validation card and next-step suggestion.
+
+## Agent Architecture
 
 | Agent | Role | Responsibility |
 | :--- | :--- | :--- |
-| **Researcher** 🔍 | Signal Extraction | Converts "JD.com is undervalued" into `PB < 1.0`. |
-| **Critic** ⚖️ | Logical Review | Checks for look-ahead bias and logical consistency. |
-| **Validator** 📊 | Statistical Testing | Runs backtests and calculates p-values via `scipy`. |
-| **Advisor** 💡 | Optimization | Suggests parameter tuning (e.g., stricter thresholds) if the initial hypothesis fails. |
+| Researcher | Signal extraction | Converts a sentence about BOE Technology into a condition such as `PB < 1.0`. |
+| Critic | Logic review | Checks basic consistency and validation risks. |
+| Validator | Historical check | Runs the numerical validation and statistical test. |
+| Advisor | Iteration | Suggests a stricter threshold if the first hypothesis fails. |
 
-## 🚀 Quick Start
+## Quick Start
 
-### Prerequisites
-- Python 3.9+
-- A Tushare Pro Token (optional, falls back to demo mode)
-
-### Installation
 ```bash
 git clone https://github.com/YutongXu243/AlphaPilot.git
 cd AlphaPilot
 pip install -r requirements.txt
-```
-
-### Run Demo
-```bash
 python main.py
 ```
 
-## 🎬 Case Study: BOE Technology (000725.SZ)
+## Case Study: BOE Technology / Jingdongfang A (000725.SZ)
 
-**Hypothesis:** "Buy when PB < 1.0 because the panel industry is bottoming out."
+Demo hypothesis: `BOE Technology PB < 1.0`.
 
-1.  **Initial Validation:** ❌ **Failed**. Excess return was -16.57% against the benchmark.
-2.  **Advisor Insight:** The threshold might be too loose. Suggested trying `PB < 0.8`.
-3.  **Re-validation:** In this specific simulation, even the optimized threshold struggled to beat the strong benchmark, highlighting the importance of rigorous testing before investing.
+AlphaPilot first checks the broad threshold, then asks whether a stricter threshold such as `PB < 0.8` gives a cleaner result.
 
-## 🛠️ Tech Stack
-*   **Core:** Python, Pandas, NumPy
-*   **Statistics:** Scipy (Paired t-test for significance)
-*   **Data:** Tushare Pro (with built-in Mock Data for stability)
-*   **UI:** Rich (Terminal formatting)
+## Tech Stack
 
-## ⚠️ Limitations
-*   Currently supports single-stock validation only.
-*   Mock data is used for demonstration purposes in the absence of a valid API token.
+- Python
+- Pandas
+- NumPy
+- SciPy
+- Tushare, optional
+- Rich
 
-## 🔮 Future Work
-*   Integration of LLMs for more complex logical parsing.
-*   Cross-sectional factor analysis (IC/Rank IC).
-*   Real-time signal monitoring via IM connectors.
+## Limitations
 
----
-*Built for the Hackathon. Let every investment idea stand the test of history.*
+- This is a Hackathon MVP, not financial advice.
+- The default mode uses deterministic demo data when no Tushare token is configured.
+- Current validation is single-company and demonstration-oriented.
+
+## Future Work
+
+- LLM-based parsing for complex research logic.
+- Broader universe testing.
+- Transaction-cost-aware validation.
+- QoderWork connector integration.
