@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaPilot Demo</title>
+    <style>
+        body { background-color: #1e1e1e; color: #d4d4d4; font-family: 'Courier New', Courier, monospace; padding: 20px; }
+        .terminal { max-width: 800px; margin: 0 auto; }
+        .line { margin-bottom: 5px; white-space: pre-wrap; opacity: 0; animation: fadeIn 0.5s forwards; }
+        .green { color: #4ec9b0; }
+        .red { color: #f44747; }
+        .yellow { color: #dcdcaa; }
+        .blue { color: #569cd6; }
+        .box { border: 1px solid #555; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .cursor { display: inline-block; width: 10px; height: 18px; background: #d4d4d4; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+    <div class="terminal" id="terminal"></div>
+
+    <script>
+        const lines = [
+            { text: "───────────────── AlphaPilot: Investment Hypothesis Validator ──────────────────", class: "green" },
+            { text: "让每一个投资观点都经得起历史检验\n", class: "" },
+            { text: "🎬 启动 Demo 模式...\n", class: "blue" },
+            { text: "🔍 正在验证: 000725.SZ PB < 1.0", class: "" },
+            { text: "加载历史数据... [OK]", class: "green" },
+            { text: "╭── Case 1: 原观点验证 ───╮", class: "" },
+            { text: "│   策略年化     19.18%   │", class: "" },
+            { text: "│   基准年化     35.75%   │", class: "" },
+            { text: "│   超额收益    -16.57%   │", class: "red" },
+            { text: "│   p-value       0.012   │", class: "yellow" },
+            { text: "╰─────────────────────────╯", class: "" },
+            { text: "❌ 无效 (Invalid Hypothesis)\n", class: "red" },
+            { text: "💡 AI 建议: 原阈值可能太宽松，尝试 PB < 0.8\n", class: "yellow" },
+            { text: "🔍 正在验证: 000725.SZ PB < 0.8", class: "" },
+            { text: "加载历史数据... [OK]", class: "green" },
+            { text: "╭─ Case 2: AI 优化后验证 ─╮", class: "" },
+            { text: "│   策略年化      28.45%   │", class: "" },
+            { text: "│   基准年化     35.75%   │", class: "" },
+            { text: "│   超额收益     +4.20%   │", class: "green" },
+            { text: "│   p-value       0.030   │", class: "green" },
+            { text: "╰─────────────────────────╯", class: "" },
+            { text: "✅ 有效 (Significant Alpha)\n", class: "green" },
+            { text: "AlphaPilot: 让每一个投资观点都经得起历史检验。", class: "blue" }
+        ];
+
+        const terminal = document.getElementById('terminal');
+        let delay = 0;
+
+        lines.forEach((line, index) => {
+            setTimeout(() => {
+                const div = document.createElement('div');
+                div.className = `line ${line.class}`;
+                div.textContent = line.text;
+                terminal.appendChild(div);
+                window.scrollTo(0, document.body.scrollHeight);
+            }, delay);
+            delay += Math.max(line.text.length * 30, 800); 
+        });
+    </script>
+</body>
+</html>
