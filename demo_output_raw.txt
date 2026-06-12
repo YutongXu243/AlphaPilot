@@ -1,0 +1,42 @@
+────────────────── AlphaPilot: Multi-Agent Investment Copilot ──────────────────
+Turn natural-language hypotheses into statistically validated signals.
+
+⚠️ 未检测到 Tushare Token，切换至演示模式（模拟数据）
+Input Hypothesis: 京东方A PB低于1倍时买入
+
+🕵️ [Researcher Agent] Parsing hypothesis: "京东方A PB低于1倍时买入"...
+⚖️  [Critic Agent] Checking logic & risks...
+✓ Logic check passed. No obvious look-ahead bias.
+📊 [Validator Agent] Executing historical validation...
+
+🔍 正在验证: 000725.SZ PB < 1.0
+加载历史数据...
+数据量: 1096 个交易日
+╭────────────── Initial Validation ───────────────╮
+│   Strategy Annualized                  19.18%   │
+│   Benchmark Annualized                 35.75%   │
+│   Excess Return (Alpha)               -16.57%   │
+│   Statistical Significance    p-value = 0.012   │
+│   Max Drawdown                         -8.34%   │
+╰─────────────────────────────────────────────────╯
+❌ 无效 (Invalid Hypothesis)
+💡 [Advisor Agent] Analyzing results & generating advice...
+╭──────────────────────────── Optimization Advice ─────────────────────────────╮
+│ Original hypothesis failed. Suggest trying a stricter threshold: PB < 0.8    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+🔄 Initiating automatic re-validation with optimized parameters...
+
+📊 [Validator Agent] Executing historical validation...
+
+🔍 正在验证: 000725.SZ PB < 0.8
+加载历史数据...
+数据量: 1096 个交易日
+╭───────────── Optimized Validation ──────────────╮
+│   Strategy Annualized                   1.61%   │
+│   Benchmark Annualized                 35.75%   │
+│   Excess Return (Alpha)               -34.14%   │
+│   Statistical Significance    p-value = 0.000   │
+│   Max Drawdown                        -11.84%   │
+╰─────────────────────────────────────────────────╯
+❌ 无效 (Invalid Hypothesis)

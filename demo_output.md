@@ -51,13 +51,13 @@ Original hypothesis failed. The threshold `PB < 1.0` may be too loose to capture
 
 | Metric | Value |
 | :--- | :--- |
-| Strategy Annualized | 28.45% |
+| Strategy Annualized | 1.61% |
 | Benchmark Annualized | 35.75% |
-| **Excess Return (Alpha)** | **+4.20%** ✅ |
-| Statistical Significance | p-value = 0.030 |
+| **Excess Return (Alpha)** | **-34.14%** ❌ |
+| Statistical Significance | p-value = 0.000 |
 | Max Drawdown | -11.84% |
 
-**Final Conclusion:** ✅ Valid (Significant Alpha)
+**Final Conclusion:** ❌ Still Invalid (Optimization Failed)
 
 ---
-*AlphaPilot successfully transformed a vague opinion into a verified, optimized trading signal.*
+*AlphaPilot completed the validation cycle.*

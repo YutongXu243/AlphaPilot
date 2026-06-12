@@ -38,13 +38,13 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## 🎬 Case Study: JD.com (000725.SZ)
+## 🎬 Case Study: BOE Technology (000725.SZ)
 
 **Hypothesis:** "Buy when PB < 1.0 because the panel industry is bottoming out."
 
 1.  **Initial Validation:** ❌ **Failed**. Excess return was -16.57% against the benchmark.
 2.  **Advisor Insight:** The threshold might be too loose. Suggested trying `PB < 0.8`.
-3.  **Re-validation:** ✅ **Success**. With the optimized threshold, the strategy showed significant Alpha (p < 0.05).
+3.  **Re-validation:** In this specific simulation, even the optimized threshold struggled to beat the strong benchmark, highlighting the importance of rigorous testing before investing.
 
 ## 🛠️ Tech Stack
 *   **Core:** Python, Pandas, NumPy
