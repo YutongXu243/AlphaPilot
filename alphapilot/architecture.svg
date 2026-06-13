@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 32px; font-weight: 700; fill: #1a1a1a; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; fill: #666; }
+      .node-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .node-desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 11px; fill: #666; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .user-box { fill: #e1f5ff; stroke: #0066cc; stroke-width: 2; rx: 8; }
+      .agent-box { fill: #fff4e6; stroke: #ff9900; stroke-width: 2; rx: 8; }
+      .output-box { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .container-box { fill: none; stroke: #999; stroke-width: 1.5; stroke-dasharray: 6 4; rx: 12; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" class="title">AlphaPilot</text>
+  <text x="600" y="75" text-anchor="middle" class="subtitle">Multi-Agent Investment Research Copilot</text>
+  
+  <!-- User Node -->
+  <rect x="525" y="110" width="150" height="60" class="user-box"/>
+  <text x="600" y="138" text-anchor="middle" class="node-label">👤 User</text>
+  <text x="600" y="156" text-anchor="middle" class="node-desc">Investment Hypothesis</text>
+  
+  <!-- Arrow from User to Researcher -->
+  <line x1="600" y1="170" x2="600" y2="210" class="arrow"/>
+  
+  <!-- Agent System Container -->
+  <rect x="150" y="220" width="900" height="380" class="container-box"/>
+  <text x="170" y="245" class="node-desc" style="font-size: 12px; font-weight: 600;">🤖 AlphaPilot Multi-Agent System</text>
+  
+  <!-- Researcher Agent -->
+  <rect x="200" y="270" width="200" height="80" class="agent-box"/>
+  <text x="300" y="300" text-anchor="middle" class="node-label">🔍 Researcher Agent</text>
+  <text x="300" y="320" text-anchor="middle" class="node-desc">Extract Investment Hypothesis</text>
+  <text x="300" y="335" text-anchor="middle" class="node-desc">(e.g., PB &lt; 1.0)</text>
+  
+  <!-- Arrow from Researcher to Critic -->
+  <line x1="400" y1="310" x2="470" y2="310" class="arrow"/>
+  
+  <!-- Critic Agent -->
+  <rect x="475" y="270" width="200" height="80" class="agent-box"/>
+  <text x="575" y="300" text-anchor="middle" class="node-label">⚖️ Critic Agent</text>
+  <text x="575" y="320" text-anchor="middle" class="node-desc">Check Logic &amp; Risks</text>
+  <text x="575" y="335" text-anchor="middle" class="node-desc">(Look-ahead bias check)</text>
+  
+  <!-- Arrow from Critic to Validator -->
+  <line x1="675" y1="310" x2="745" y2="310" class="arrow"/>
+  
+  <!-- Validator Agent -->
+  <rect x="750" y="270" width="200" height="80" class="agent-box"/>
+  <text x="850" y="300" text-anchor="middle" class="node-label">📊 Validator Agent</text>
+  <text x="850" y="320" text-anchor="middle" class="node-desc">Backtest + Statistical Test</text>
+  <text x="850" y="335" text-anchor="middle" class="node-desc">(Returns, p-value, alpha)</text>
+  
+  <!-- Arrow from Validator down to Advisor -->
+  <line x1="850" y1="350" x2="850" y2="420" class="arrow"/>
+  
+  <!-- Advisor Agent -->
+  <rect x="750" y="425" width="200" height="80" class="agent-box"/>
+  <text x="850" y="455" text-anchor="middle" class="node-label">💡 Advisor Agent</text>
+  <text x="850" y="475" text-anchor="middle" class="node-desc">Generate Optimization</text>
+  <text x="850" y="490" text-anchor="middle" class="node-desc">(e.g., stricter threshold)</text>
+  
+  <!-- Arrow from Advisor to Output -->
+  <line x1="850" y1="505" x2="850" y2="545" class="arrow"/>
+  <line x1="850" y1="545" x2="600" y2="545" class="arrow"/>
+  <line x1="600" y1="545" x2="600" y2="620" class="arrow"/>
+  
+  <!-- Validation Card Output -->
+  <rect x="450" y="625" width="300" height="140" class="output-box"/>
+  <text x="600" y="650" text-anchor="middle" class="node-label" style="font-size: 15px;">📋 Validation Card</text>
+  
+  <!-- Validation Card Content -->
+  <text x="470" y="675" class="node-desc" style="font-size: 12px;">📈 Strategy Annualized Return</text>
+  <text x="470" y="695" class="node-desc" style="font-size: 12px;">📉 Benchmark Return</text>
+  <text x="470" y="715" class="node-desc" style="font-size: 12px;">✨ Excess Return (Alpha)</text>
+  <text x="470" y="735" class="node-desc" style="font-size: 12px;">🎯 p-value / Statistical Significance</text>
+  <text x="470" y="755" class="node-desc" style="font-size: 12px;">✅ Final Conclusion</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="650" width="12" height="12" class="user-box" style="stroke-width: 1.5;"/>
+  <text x="70" y="661" class="node-desc">User Input</text>
+  
+  <rect x="50" y="675" width="12" height="12" class="agent-box" style="stroke-width: 1.5;"/>
+  <text x="70" y="686" class="node-desc">Agent Processing</text>
+  
+  <rect x="50" y="700" width="12" height="12" class="output-box" style="stroke-width: 1.5;"/>
+  <text x="70" y="711" class="node-desc">Output Result</text>
+</svg>
