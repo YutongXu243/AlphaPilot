@@ -28,11 +28,11 @@
 
 ![Expert Research](docs/screenshots/expert_research.png)
 
-*图1：调研了10个专家套件，重点学习投研分析、股权投资、咨询交付三个已启用套件的设计思路*
+*图1：调研了10个专家套件，重点学习投研分析、股权投资、咨询交付三个已启用套件的设计思路（绿色开关表示已启用）*
 
-![Architecture Design](docs/screenshots/architecture_design.png)  
+![Skills and Connectors Overview](docs/screenshots/skill_connector_overview.png)  
 
-*图2：基于QoderWork能力映射，设计了AlphaPilot的四智能体架构*
+*图2：QoderWork的技能市场和连接器生态为AlphaPilot提供了方法论基础和数据集成能力*
 
 ## 如何设计 Agent？
 

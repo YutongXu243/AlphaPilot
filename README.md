@@ -173,29 +173,23 @@ AlphaPilot was designed based on extensive research of QoderWork's three-layer c
 
 ![Expert Research](docs/screenshots/expert_research.png)
 
-*Figure 1: QoderWork provides 10 domain-specific expert plugins. AlphaPilot draws inspiration from equity-research, pe-vc-investment, and consulting-delivery plugins.*
+*Figure 1: QoderWork provides 10 domain-specific expert plugins. AlphaPilot draws inspiration from equity-research, pe-vc-investment, and consulting-delivery plugins (shown enabled with green toggles).*
 
 **Key Insights**:
 - Professional workflows can be decomposed into standardized, automated steps
 - Each plugin has clear responsibility boundaries and output formats
 - Inspired the multi-agent architecture with specialized roles
 
-### Skill Library Analysis
+### Skill & Connector Ecosystem
 
-![Skill Research](docs/screenshots/skill_research.png)
+![Skills and Connectors Overview](docs/screenshots/skill_connector_overview.png)
 
-*Figure 2: 35+ skills including finance-skills, deep-research, data-analyzer provide methodological foundations.*
+*Figure 2: QoderWork's skill marketplace and connector ecosystem enable professional financial analysis methods and external data integration.*
 
 **Key Learnings**:
 - Financial analysis requires rigorous statistical methods (e.g., p-value < 0.05 for significance)
 - Standardized output formats ensure consistency and comparability
 - Validated the need for statistical testing in Validator Agent
-
-### Connector Ecosystem
-
-![Connector Research](docs/screenshots/connector_research.png)
-
-*Figure 3: 22 connectors (Browser, Notion, Qichacha, PKULaw) enable real-world data integration.*
 
 **Future Direction**:
 - Browser connector: Fetch real-time company announcements and news
@@ -205,9 +199,24 @@ AlphaPilot was designed based on extensive research of QoderWork's three-layer c
 
 ### Architecture Design
 
-![Architecture Design](docs/screenshots/architecture_design.png)
+The AlphaPilot architecture was derived from mapping QoderWork capabilities to investment research workflow requirements:
 
-*Figure 4: AlphaPilot architecture derived from QoderWork capability mapping.*
+```mermaid
+flowchart TD
+    U[👤 User<br/>Investment Hypothesis] --> R[🔍 Researcher Agent<br/>Parse & Extract Signal]
+    R --> C[️ Critic Agent<br/>Logic & Risk Check]
+    C --> V[📊 Validator Agent<br/>Backtest + Stats Test]
+    V --> A[💡 Advisor Agent<br/>Optimization Suggestion]
+    A --> VC[📋 Validation Card<br/>Final Conclusion]
+    A -->|If failed<br/>Re-validate| V
+    
+    style U fill:#e1f5ff,stroke:#0066cc,stroke-width:3px
+    style R fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style C fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style V fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style A fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style VC fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
+```
 
 **Design Philosophy**: Transform qualitative investment research into quantitative, statistically validated signals through a collaborative multi-agent workflow.
 
