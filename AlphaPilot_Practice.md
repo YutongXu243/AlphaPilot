@@ -142,6 +142,12 @@ Advisor 建议 (尝试 PB < 0.8)
 成功 (PB < 0.8, Excess Return = +6.44%, p = 0.004)
 ```
 
+### 终端运行截图
+
+![AlphaPilot Demo 运行效果](uploads/image_1781346182731_wfm8dhq.png)
+
+*图1：AlphaPilot 完整运行流程，展示从失败到成功的闭环验证*
+
 ---
 
 ## 6. 项目价值
