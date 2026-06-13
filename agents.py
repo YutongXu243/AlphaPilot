@@ -1,6 +1,7 @@
 """
 AlphaPilot Multi-Agent System
 Lightweight wrappers to orchestrate the investment validation process.
+Defines four specialized agents: Researcher, Critic, Validator, and Advisor.
 """
 
 from parser import parse_hypothesis

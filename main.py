@@ -1,5 +1,6 @@
 """
 AlphaPilot MVP Entry Point - Multi-Agent Orchestration
+This script orchestrates the four specialized agents to validate investment hypotheses.
 """
 import sys
 from rich.console import Console
@@ -10,7 +11,7 @@ from agents import ResearcherAgent, CriticAgent, ValidatorAgent, AdvisorAgent
 console = Console()
 
 def print_validation_card(result: dict, title: str = "Final Validation Result"):
-    """Prints a professional validation card."""
+    """Prints a professional validation card with key metrics."""
     table = Table(show_header=False, box=None, padding=(0, 2))
     table.add_column("Metric", style="cyan")
     table.add_column("Value", justify="right", style="bold")
@@ -49,19 +50,19 @@ def main():
     
     console.print(f"[bold]Input Hypothesis:[/bold] {user_input}")
     
-    # 1. Researcher Agent
+    # 1. Researcher Agent: Parse natural language
     hypothesis = researcher.run(user_input)
     
-    # 2. Critic Agent
+    # 2. Critic Agent: Logical review
     if not critic.run(hypothesis):
         console.print("[red]Validation aborted due to logical risks.[/red]")
         return
 
-    # 3. Validator Agent (First Pass)
+    # 3. Validator Agent: First Pass Backtest
     result = validator.run(hypothesis)
     print_validation_card(result, "Initial Validation")
     
-    # 4. Advisor Agent
+    # 4. Advisor Agent: Generate suggestions
     advice = advisor.run(hypothesis, result)
     
     # 5. Automatic Re-validation if advised

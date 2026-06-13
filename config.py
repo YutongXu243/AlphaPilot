@@ -1,5 +1,7 @@
 """
 AlphaPilot Config
+Global configuration for the multi-agent investment system.
+Defines API tokens, backtest windows, and statistical thresholds.
 """
 
 # Tushare Token (请替换为你的真实 Token)

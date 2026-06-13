@@ -1,6 +1,7 @@
 """
 Agent 1: Research Parser
 将自然语言投资观点解析为结构化信号定义
+Supports extraction of stock codes, financial indicators (PB, PE), and thresholds.
 """
 import re
 from typing import Dict

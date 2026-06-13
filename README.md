@@ -17,10 +17,10 @@ This project demonstrates a lightweight agent workflow:
 
 | Agent | Role | Responsibility |
 | :--- | :--- | :--- |
-| Researcher | Signal extraction | Converts a sentence about BOE Technology into a condition such as `PB < 1.0`. |
-| Critic | Logic review | Checks basic consistency and validation risks. |
-| Validator | Historical check | Runs the numerical validation and statistical test. |
-| Advisor | Iteration | Suggests a stricter threshold if the first hypothesis fails. |
+| **Researcher** 🔍 | Signal Extraction | Converts "BOE Technology is undervalued" into `PB < 1.0`. |
+| **Critic** ⚖️ | Logical Review | Checks for look-ahead bias and logical consistency. |
+| **Validator** 📊 | Statistical Testing | Runs backtests and calculates p-values via `scipy`. |
+| **Advisor** 💡 | Optimization | Suggests parameter tuning (e.g., stricter thresholds) if the initial hypothesis fails. |
 
 ## Quick Start
 
@@ -31,11 +31,13 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Case Study: BOE Technology / Jingdongfang A (000725.SZ)
+## 🎬 Case Study: BOE Technology / 京东方A (000725.SZ)
 
 Demo hypothesis: `BOE Technology PB < 1.0`.
 
-AlphaPilot first checks the broad threshold, then asks whether a stricter threshold such as `PB < 0.8` gives a cleaner result.
+1.  **Initial Validation:** ❌ **Failed**. Excess return was negative against the benchmark.
+2.  **Advisor Insight:** The threshold might be too loose. Suggested trying `PB < 0.8`.
+3.  **Re-validation:** In this specific simulation, even the optimized threshold struggled to beat the strong benchmark, highlighting the importance of rigorous testing before investing.
 
 ## Tech Stack
 
@@ -58,3 +60,6 @@ AlphaPilot first checks the broad threshold, then asks whether a stricter thresh
 - Broader universe testing.
 - Transaction-cost-aware validation.
 - QoderWork connector integration.
+
+---
+*Built for the Hackathon. Let every investment idea stand the test of history.*
