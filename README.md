@@ -37,7 +37,7 @@ Demo hypothesis: `BOE Technology PB < 1.0`.
 
 1.  **Initial Validation:** ❌ **Failed**. Excess return was negative against the benchmark.
 2.  **Advisor Insight:** The threshold might be too loose. Suggested trying `PB < 0.8`.
-3.  **Re-validation:** In this specific simulation, even the optimized threshold struggled to beat the strong benchmark, highlighting the importance of rigorous testing before investing.
+3.  **Re-validation:** ✅ **Success**. The stricter threshold `PB < 0.8` produced positive excess return (+6.44%) and statistically significant alpha (p-value = 0.004).
 
 ## Tech Stack
 
