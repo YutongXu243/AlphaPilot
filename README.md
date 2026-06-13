@@ -15,6 +15,25 @@ This project demonstrates a lightweight agent workflow:
 
 ## Agent Architecture
 
+AlphaPilot orchestrates four specialized agents to validate investment hypotheses:
+
+```mermaid
+flowchart TD
+    U[👤 User<br/>Investment Hypothesis] --> R[🔍 Researcher Agent]
+    R --> C[⚖️ Critic Agent]
+    C --> V[📊 Validator Agent]
+    V --> A[💡 Advisor Agent]
+    A --> VC[📋 Validation Card]
+    A -->|If failed<br/>Suggest optimization| V
+    
+    style U fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    style R fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style C fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style V fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style A fill:#fff4e6,stroke:#ff9900,stroke-width:2px
+    style VC fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+```
+
 | Agent | Role | Responsibility |
 | :--- | :--- | :--- |
 | **Researcher** 🔍 | Signal Extraction | Converts "BOE Technology is undervalued" into `PB < 1.0`. |
