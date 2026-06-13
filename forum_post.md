@@ -30,7 +30,7 @@
 
 *图1：调研了10个专家套件，重点学习投研分析、股权投资、咨询交付三个已启用套件的设计思路（绿色开关表示已启用）*
 
-![Skills and Connectors Overview](docs/screenshots/skill_connector_overview.png)  
+![Skills Marketplace](docs/screenshots/skills_marketplace.png)  
 
 *图2：QoderWork的技能市场和连接器生态为AlphaPilot提供了方法论基础和数据集成能力*
 

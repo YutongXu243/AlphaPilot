@@ -182,7 +182,7 @@ AlphaPilot was designed based on extensive research of QoderWork's three-layer c
 
 ### Skill & Connector Ecosystem
 
-![Skills and Connectors Overview](docs/screenshots/skill_connector_overview.png)
+![Skills Marketplace](docs/screenshots/skills_marketplace.png)
 
 *Figure 2: QoderWork's skill marketplace and connector ecosystem enable professional financial analysis methods and external data integration.*
 

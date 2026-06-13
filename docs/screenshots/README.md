@@ -14,11 +14,11 @@ This directory contains screenshots demonstrating QoderWork usage in AlphaPilot 
 - AlphaPilot_Practice.md → Section 2.1
 - forum_post.md → QoderWork调研过程
 
-### 2. skill_connector_overview.png ✅
+### 2. skills_marketplace.png ✅
 **Status**: Completed  
-**Content**: QoderWork plugin marketplace overview showing available skills and connectors  
+**Content**: QoderWork Skills marketplace showing installed skills with toggles (finance-skills, deep-research, etc.)  
 **Captured**: June 13, 2026  
-**Purpose**: Demonstrate understanding of methodological foundations and external data integration capabilities  
+**Purpose**: Demonstrate understanding of methodological foundations through skill exploration  
 **Used in**:
 - README.md → Skill & Connector Ecosystem section  
 - AlphaPilot_Practice.md → Section 2.2
@@ -29,7 +29,7 @@ This directory contains screenshots demonstrating QoderWork usage in AlphaPilot 
 The following screenshots are optional and not required for submission:
 
 ### 3. connector_research.png (Optional)
-**Status**: Not captured - covered by skill_connector_overview.png  
+**Status**: Not captured - covered by skills_marketplace.png  
 **Reason**: The current screenshot already shows connector information
 
 ### 4. architecture_design.png (Optional)  
