@@ -165,6 +165,54 @@ python main.py
 
 ---
 
+## QoderWork Research Process
+
+AlphaPilot was designed based on extensive research of QoderWork's three-layer capability system:
+
+### Expert Plugin Exploration
+
+![Expert Research](docs/screenshots/expert_research.png)
+
+*Figure 1: QoderWork provides 10 domain-specific expert plugins. AlphaPilot draws inspiration from equity-research, pe-vc-investment, and consulting-delivery plugins.*
+
+**Key Insights**:
+- Professional workflows can be decomposed into standardized, automated steps
+- Each plugin has clear responsibility boundaries and output formats
+- Inspired the multi-agent architecture with specialized roles
+
+### Skill Library Analysis
+
+![Skill Research](docs/screenshots/skill_research.png)
+
+*Figure 2: 35+ skills including finance-skills, deep-research, data-analyzer provide methodological foundations.*
+
+**Key Learnings**:
+- Financial analysis requires rigorous statistical methods (e.g., p-value < 0.05 for significance)
+- Standardized output formats ensure consistency and comparability
+- Validated the need for statistical testing in Validator Agent
+
+### Connector Ecosystem
+
+![Connector Research](docs/screenshots/connector_research.png)
+
+*Figure 3: 22 connectors (Browser, Notion, Qichacha, PKULaw) enable real-world data integration.*
+
+**Future Direction**:
+- Browser connector: Fetch real-time company announcements and news
+- Qichacha: Equity penetration and related party identification  
+- PKULaw: Compliance review and regulatory risk assessment
+- IM connectors (DingTalk/Feishu): Push validation results to decision makers
+
+### Architecture Design
+
+![Architecture Design](docs/screenshots/architecture_design.png)
+
+*Figure 4: AlphaPilot architecture derived from QoderWork capability mapping.*
+
+**Design Philosophy**: Transform qualitative investment research into quantitative, statistically validated signals through a collaborative multi-agent workflow.
+
+---
+
 ## Future Work
 
 - Cross-sectional factor testing across entire market universe

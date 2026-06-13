@@ -24,6 +24,16 @@
 
 特别是"业绩快评"套件中对超预期/低预期的判断标准，以及"可比公司分析"中对估值指标矩阵的定义，给了我很大启发。我开始思考：能否把这些标准化的分析方法应用到投资观点的验证上？
 
+### QoderWork 调研过程
+
+![Expert Research](docs/screenshots/expert_research.png)
+
+*图1：调研了10个专家套件，重点学习投研分析、股权投资、咨询交付三个已启用套件的设计思路*
+
+![Architecture Design](docs/screenshots/architecture_design.png)  
+
+*图2：基于QoderWork能力映射，设计了AlphaPilot的四智能体架构*
+
 ## 如何设计 Agent？
 
 基于以上思考，我设计了四个专门的 Agent 来协作完成验证任务：
